@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<!-- Ionicons -->
+<link rel="stylesheet" href="~/Content/bower_components/Ionicons/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
+
+<div class="row content content-fluid">
+    <div class="col-lg-12 ">
+        <h2 class="alert bg-blue text-center container-fluid">Fedelta Clínica Para Mascotas</h2>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <b class="text">CONSULTAS</b>
+                <h5>@ViewBag.CC</h5>
+            </div>
+            <div class="icon">
+                <i class="ion-android-calendar"></i>
+            </div>
+            <a href="@Url.Action("Create","Consultas")" class="small-box-footer">Nueva Consulta <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-purple">
+            <div class="inner">
+                <b class="text">PACIENTES</b>
+
+                <h5>@ViewBag.CP</h5>
+            </div>
+            <div class="icon">
+                <i class="ion ion-ios-paw"></i>
+            </div>
+            <a href="@Url.Action("Index","Pacientes")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-fuchsia">
+            <div class="inner">
+                <b class="text">EXPEDIENTES</b>
+                <h5>@ViewBag.CE</h5>
+            </div>
+            <div class="icon">
+                <i class="ion-android-archive"></i>
+            </div>
+            <a href="@Url.Action("Index","Expedientes")" class="small-box-footer">Administrar<i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <b class="text">USUARIOS</b>
+
+                <h5>@ViewBag.CU</h5>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="@Url.Action("Index","Usuarios")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+
+
+</div>

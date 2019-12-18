@@ -1,0 +1,54 @@
+﻿@model FedeltaSystem.Models.tblEmpleados
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4 class="text-info">Registros de Empleados</h4></div>
+        <div class="panel-body">
+
+            <div>
+                <h5 class="alert alert-info">Detalles de Empleado</h5>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NombreEmpleado)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.NombreEmpleado)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ApellidoEmpleado)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ApellidoEmpleado)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Telefono)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Direccion)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Direccion)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("MODIFICAR", "Edit", new { id = Model.IdEmpleado }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("ATRAS", "Index", null, new { @class = "btn btn-info" })
+            </p>
+        </div>
+    </div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FedeltaSystem.Models.tblPacientes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Responsable.NombreResponsable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombrePaciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Raza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especie)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Responsable.NombreResponsable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombrePaciente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Raza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Especie)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdPaciente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdPaciente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdPaciente })
+        </td>
+    </tr>
+}
+
+</table>

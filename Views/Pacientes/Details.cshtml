@@ -1,0 +1,118 @@
+﻿@model FedeltaSystem.Models.tblPacientes
+
+@{
+    ViewBag.Title = "Detalles";
+}
+<div class="container">
+    <div class="row">
+        <div class="container-fluid" style="margin-bottom:2%" >
+            <!----- Card dato pacientes --->
+            <div class="card border-primary">
+                <div class="card-header bg-primary">Datos Pacientes</div>
+                <div class="card-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Responsable.NombreResponsable)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Responsable.NombreResponsable)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NombrePaciente)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NombrePaciente)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Edad)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Edad)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Sexo)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Sexo)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Raza)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Raza)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Especie)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Especie)
+                        </dd>
+
+                    </dl>
+                </div>
+                <div class="card-footer">
+                    <p>
+                        @Html.ActionLink("Modificar", "Edit", new { id = Model.IdPaciente }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+                    </p>
+                </div>
+            </div>
+            <!-----./Card dato pacientes--->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container-fluid">
+            <!----- Card Historial --->
+            <div class="card border-primary">
+                <div class="card-header bg-primary">Historial</div>
+                <div class="card-body bg-light">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>
+                                Fecha Consulta
+                            </th>
+
+                            <th>
+                                Diagnostico
+                            </th>
+                            <th>
+                                Observaciones
+                            </th>
+                        </tr>
+
+                        @foreach (var item in ViewBag.Consultas)
+                        {
+                            <tr>
+                                <td>
+                                    @item.FechaConsulta
+                                </td>
+                                <td>
+                                    @item.Diagnostico
+                                </td>
+                                <td>
+                                    @item.Observaciones
+                                </td>
+
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+            <!-----./Card dato pacientes--->
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@model FedeltaSystem.Models.tblConsultas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblConsultas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.NombrePaciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.NombrePaciente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaConsulta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaConsulta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Temperatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temperatura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnostico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnostico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Observaciones)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdConsulta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

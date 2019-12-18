@@ -1,0 +1,61 @@
+﻿@model ActividadLogin.Models.tblUsuarios
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h4 class="text-info">Registros de Usuarios</h4></div>
+    <div class="panel-body">
+
+        <div>
+            <h5 class="alert alert-danger">Seguro de Eliminar el Registro?</h5>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Empleados.Nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Empleados.Nombre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Roles.Rol)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Roles.Rol)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Usuario)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Usuario)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Clave)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Clave)
+                </dd>
+
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="ELIMINAR" class="btn btn-danger" /> |
+                    @Html.ActionLink("ATRAS", "Index", null, new { @class = "btn btn-info" })
+                </div>
+            }
+        </div>
+    </div>
+</div>
