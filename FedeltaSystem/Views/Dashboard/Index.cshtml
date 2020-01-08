@@ -11,9 +11,6 @@
 <link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
 
 <div class="row content content-fluid">
-    <div class="col-lg-12 ">
-        <h2 class="alert bg-blue text-center container-fluid">Fedelta Clínica Para Mascotas</h2>
-    </div>
     <!-- ./col -->
     <div class="col-lg-4 col-xs-4">
         <!-- small box -->
@@ -23,9 +20,23 @@
                 <h5>@ViewBag.CC</h5>
             </div>
             <div class="icon">
-                <i class="ion-android-calendar"></i>
+                <i class="ion-heart-broken"></i>
             </div>
             <a href="@Url.Action("Create","Consultas")" class="small-box-footer">Nueva Consulta <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-aqua-gradient">
+            <div class="inner">
+                <b class="text">CITAS</b>
+                <h5>@ViewBag.CC</h5>
+            </div>
+            <div class="icon">
+                <i class="ion-android-calendar"></i>
+            </div>
+            <a href="@Url.Action("Create","Consultas")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -70,6 +81,20 @@
                 <i class="ion ion-person-add"></i>
             </div>
             <a href="@Url.Action("Index","Usuarios")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-gray-active">
+            <div class="inner">
+                <b class="text">EMPLEADOS</b>
+
+                <h5>@ViewBag.CEE</h5>
+            </div>
+            <div class="icon">
+                <i class="ion ion-ios-people"></i>
+            </div>
+            <a href="@Url.Action("Index","Empleados")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
 

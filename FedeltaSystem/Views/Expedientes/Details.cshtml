@@ -1,98 +1,42 @@
 ﻿@model FedeltaSystem.Models.tblExpedientes
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Details";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="container-fluid" style="margin-bottom:2%">
-            <!----- Card dato pacientes --->
-            <div class="card border-primary">
-                <div class="card-header bg-primary">Datos Pacientes</div>
-                <div class="card-body">
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Paciente.NombrePaciente)
-                        </dt>
+<h2>Details</h2>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Paciente.NombrePaciente)
-                        </dd>
+<div>
+    <h4>tblExpedientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente.NombrePaciente)
+        </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.NumExpediente)
-                        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.NombrePaciente)
+        </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NumExpediente)
-                        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumExpediente)
+        </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.FechaCreacion)
-                        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumExpediente)
+        </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaCreacion)
-                        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
 
-                    </dl>
-                </div>
-                <div class="card-footer">
-                    <p>
-                        @Html.ActionLink("Modificar", "Edit", new { id = Model.IdExpediente }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
-                    </p>
-                </div>
-            </div>
-            <!-----./Card dato pacientes--->
-        </div>
-    </div>
-    <div class="row">
-        <div class="container-fluid">
-            <!----- Card Historial --->
-            <div class="card border-primary">
-                <div class="card-header bg-primary">Historial</div>
-                <div class="card-body bg-light">
-                    <p>
-                        <input type="submit" name="name" value="Nueva Consulta" onclick="@Url.Action("Create","Consultas")" class = "btn btn-info"/>
-                        
-                    </p>
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>
-                                Fecha Consulta
-                            </th>
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
 
-                            <th>
-                                Diagnostico
-                            </th>
-                            <th>
-                                Observaciones
-                            </th>
-                        </tr>
-
-                        @foreach (var item in ViewBag.Consultas)
-                        {
-                            <tr>
-                                <td>
-                                    @item.FechaConsulta
-                                </td>
-                                <td>
-                                    @item.Diagnostico
-                                </td>
-                                <td>
-                                    @item.Observaciones
-                                </td>
-
-                            </tr>
-                        }
-
-                    </table>
-                </div>
-            </div>
-            <!-----./Card dato pacientes--->
-        </div>
-
-    </div>
+    </dl>
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdExpediente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

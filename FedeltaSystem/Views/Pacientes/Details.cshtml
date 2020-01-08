@@ -5,11 +5,11 @@
 }
 <div class="container">
     <div class="row">
-        <div class="container-fluid" style="margin-bottom:2%" >
+        <div class="container-fluid" style="margin-bottom:2%">
             <!----- Card dato pacientes --->
-            <div class="card border-primary">
-                <div class="card-header bg-primary">Datos Pacientes</div>
-                <div class="card-body">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Datos Pacientes</div>
+                <div class="panel-body">
                     <dl class="dl-horizontal">
                         <dt>
                             @Html.DisplayNameFor(model => model.Responsable.NombreResponsable)
@@ -61,7 +61,7 @@
 
                     </dl>
                 </div>
-                <div class="card-footer">
+                <div class="panel-footer">
                     <p>
                         @Html.ActionLink("Modificar", "Edit", new { id = Model.IdPaciente }, new { @class = "btn btn-primary" })
                         @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
@@ -75,9 +75,9 @@
     <div class="row">
         <div class="container-fluid">
             <!----- Card Historial --->
-            <div class="card border-primary">
-                <div class="card-header bg-primary">Historial</div>
-                <div class="card-body bg-light">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">Historial</div>
+                <div class="panel-body">
                     <table class="table table-bordered">
                         <tr>
                             <th>

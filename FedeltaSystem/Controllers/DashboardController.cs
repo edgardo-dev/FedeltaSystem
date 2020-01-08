@@ -13,16 +13,17 @@ namespace FedeltaSystem.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            if (Session["IdUsuario"] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            //if (Session["IdUsuario"] == null)
+            //{
+            //    return RedirectToAction("Index", "Login");
+            //}
             ViewBag.CR = db.Responsables.Count();
             ViewBag.CP = db.Pacientes.Count();
             ViewBag.CU = db.Usuarios.Count();
             ViewBag.CC = db.Consultas.Count();
             ViewBag.CE = db.Expedientes.Count();
-            
+            ViewBag.CEE = db.Expedientes.Count();
+
             return View();
         }
     }
