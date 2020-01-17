@@ -1,63 +1,74 @@
 ﻿@model IEnumerable<FedeltaSystem.Models.tblPacientes>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Control de Pacientes";
 }
 
-<h2>Index</h2>
+<div class="row content container-fluid">
+    <p>
+        @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE PACIENTES</h4></div>
+        <div class="panel-body bg-gray">
+            <table id="Tabla" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Responsable.NombreResponsable)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NombrePaciente)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Edad)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Sexo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Raza)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Especie)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Responsable.NombreResponsable)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombrePaciente)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Edad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sexo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Raza)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Especie)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdPaciente }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdPaciente }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdPaciente }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                            </td>
+                        </tr>
+                    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Responsable.NombreResponsable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NombrePaciente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Edad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sexo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Raza)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Especie)
-        </th>
-        <th></th>
-    </tr>
+                </tbody>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Responsable.NombreResponsable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombrePaciente)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Edad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sexo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Raza)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Especie)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdPaciente }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdPaciente }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdPaciente })
-        </td>
-    </tr>
-}
 
-</table>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FedeltaSystem"
   ],
-  "SelectedNode": "\\FedeltaSystem.sln",
+  "SelectedNode": "\\FedeltaSystem\\FedeltaSystem.csproj",
   "PreviewInSolutionExplorer": false
 }

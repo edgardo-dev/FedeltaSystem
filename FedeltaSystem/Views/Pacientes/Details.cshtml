@@ -3,116 +3,109 @@
 @{
     ViewBag.Title = "Detalles";
 }
-<div class="container">
-    <div class="row">
-        <div class="container-fluid" style="margin-bottom:2%">
-            <!----- Card dato pacientes --->
-            <div class="panel panel-primary">
-                <div class="panel-heading">Datos Pacientes</div>
-                <div class="panel-body">
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Responsable.NombreResponsable)
-                        </dt>
+<div class="row content container-fluid">
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Responsable.NombreResponsable)
-                        </dd>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>DATOS DEL PACIENTES</h4></div>
+        <div class="panel-body bg-gray">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Responsable.NombreResponsable)
+                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.NombrePaciente)
-                        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Responsable.NombreResponsable)
+                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NombrePaciente)
-                        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NombrePaciente)
+                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Edad)
-                        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NombrePaciente)
+                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Edad)
-                        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Edad)
+                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Sexo)
-                        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Edad)
+                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Sexo)
-                        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sexo)
+                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Raza)
-                        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Sexo)
+                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Raza)
-                        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Raza)
+                </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Especie)
-                        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Raza)
+                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Especie)
-                        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Especie)
+                </dt>
 
-                    </dl>
-                </div>
-                <div class="panel-footer">
-                    <p>
-                        @Html.ActionLink("Modificar", "Edit", new { id = Model.IdPaciente }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
-                    </p>
-                </div>
-            </div>
-            <!-----./Card dato pacientes--->
-        </div>
-    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Especie)
+                </dd>
 
-    <div class="row">
-        <div class="container-fluid">
-            <!----- Card Historial --->
-            <div class="panel panel-primary ">
-                <div class="panel-heading">Historial</div>
-                <div class="panel-body">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>
-                                Fecha Consulta
-                            </th>
-
-                            <th>
-                                Diagnostico
-                            </th>
-                            <th>
-                                Observaciones
-                            </th>
-                        </tr>
-
-                        @foreach (var item in ViewBag.Consultas)
-                        {
-                            <tr>
-                                <td>
-                                    @item.FechaConsulta
-                                </td>
-                                <td>
-                                    @item.Diagnostico
-                                </td>
-                                <td>
-                                    @item.Observaciones
-                                </td>
-
-                            </tr>
-                        }
-
-                    </table>
-                </div>
-            </div>
-            <!-----./Card dato pacientes--->
+            </dl>
+            <p>
+                @Html.ActionLink("Modificar", "Edit", new { id = Model.IdPaciente }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+            </p>
         </div>
 
     </div>
+    <!-----./Card dato pacientes--->
+</div>
+
+
+<div class="row content container-fluid">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONSULTAS</h4></div>
+        <div class="panel-body bg-gray">
+            <table class="table table-bordered">
+                <tr>
+                    <th>
+                        Fecha Consulta
+                    </th>
+
+                    <th>
+                        Diagnostico
+                    </th>
+                    <th>
+                        Observaciones
+                    </th>
+                </tr>
+
+                @foreach (var item in ViewBag.Consultas)
+                {
+                    <tr>
+                        <td>
+                            @item.FechaConsulta
+                        </td>
+                        <td>
+                            @item.Diagnostico
+                        </td>
+                        <td>
+                            @item.Observaciones
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+    <!-----./Card dato pacientes--->
 </div>

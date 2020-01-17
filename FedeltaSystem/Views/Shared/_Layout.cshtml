@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/Content/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -16,15 +16,23 @@
     <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="~/Content/bower_components/morris.js/morris.css">
+    <!-- bootstrap datepicker -->
+    <link href="~/Content/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">*@
+    <link href="~/Content/dist/css/skins/skin-blue.min.css" rel="stylesheet" />
+
+    <!-- Data Tables -->
+    <link href="~/Content/datatables_custom/main.css" rel="stylesheet" />
+    <link href="~/Content/datatables_custom/datatables/datatables.min.css" rel="stylesheet" />
+    <link href="~/Content/datatables_custom/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Fedelta</title>
+    <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -103,7 +111,7 @@
                                 <li class="user-header">
                                     <img src="~/img/perritoLogo.png" class="img-circle" />
                                     <p>
-                                        * @Session["Nombre"] *  @Session["Rol"] 
+                                        * @Session["Nombre"] *  @Session["Rol"]
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -153,11 +161,11 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">MENU</li>
-                    <li class="active treeview">
-                        <a href="@Url.Action("Index","Dashboard")">
-                            <i class="fa fa-dashboard"></i> <span>Principal</span>
+                    <li class="header">MENU PRINCIPAL</li>
 
+                    <li>
+                        <a href="@Url.Action("Index","Dashboard")">
+                            <i class="fa fa-dashboard"></i><span>Dashboard</span>
                         </a>
                     </li>
 
@@ -245,7 +253,6 @@
             <!-- Content Header (Page header) -->
 
             <div class="container-fluid content">
-                <hr>
                 <div class="row">
                     @RenderBody()
                 </div>
@@ -254,12 +261,40 @@
 
             <!-- /.content -->
         </div>
-
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versión</b> 1.0
+            </div>
+            <strong>Copyright &copy; @DateTime.Now.Year - By Fidel G. and Nestor R.</strong> All rights reserved.
+        </footer>
         <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
     <!-- jQuery 3 -->
     <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+    @RenderSection("Validar", required: false)
+    <script type="text/javascript">
+        $.extend($.validator.messages, {
+            required: "Este campo es obligatorio.",
+            remote: "Por favor, rellena este campo.",
+            email: "Por favor, escribe una dirección de correo válida",
+            url: "Por favor, escribe una URL válida.",
+            date: "Por favor, escribe una fecha válida.",
+            dateISO: "Por favor, escribe una fecha (ISO) válida.",
+            number: "Por favor, escribe un número entero válido.",
+            digits: "Por favor, escribe sólo dígitos.",
+            equalTo: "Por favor, escribe el mismo valor de nuevo.",
+            maxlength: jQuery.validator.format("Por favor, no escribas más de {0} caracteres."),
+            minlength: jQuery.validator.format("Por favor, no escribas menos de {0} caracteres."),
+            rangelength: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
+            range: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1}."),
+            max: jQuery.validator.format("Por favor, escribe un valor menor o igual a {0}."),
+            min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
+        });
+    </script>
     <!-- jQuery UI 1.11.4 -->
     <script src="~/Content/bower_components/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -273,7 +308,21 @@
     <script src="~/Content/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/Content/dist/js/pages/dashboard.js"></script>
+    <!--JQ VALIDATION-->
     <!-- AdminLTE for demo purposes -->
     <script src="~/Content/dist/js/demo.js"></script>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="~/Content/datatables_custom/popper/popper.min.js"></script>
+    <script src="~/Content/datatables_custom/main.js"></script>
+    <!-- datatables JS -->
+    <script src="~/Content/datatables_custom/datatables/datatables.min.js"></script>
+    <!-- para usar botones en datatables JS -->
+    <script src="~/Content/datatables_custom/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="~/Content/datatables_custom/datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
 </body>
 </html>
