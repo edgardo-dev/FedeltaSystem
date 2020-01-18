@@ -20,7 +20,7 @@
                     @Html.HiddenFor(model => model.IdPaciente)
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.NombrePaciente, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <label class="control-label col-md-2">Nombre del Paciente</label>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.NombrePaciente, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.NombrePaciente, "", new { @class = "text-danger" })
@@ -39,7 +39,7 @@
                         @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             <select name="Sexo" class="form-control">
-                                <option value="">Seleccione</option>
+                                <option value="@Model.Sexo">@Model.Sexo</option>
                                 <option value="Macho">Macho</option>
                                 <option value="Hembra">Hembra</option>
                             </select>
@@ -59,7 +59,7 @@
                         @Html.LabelFor(model => model.Especie, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             <select name="Especie" class="form-control">
-                                <option value="">Seleccione</option>
+                                <option value="@Model.Especie">@Model.Especie</option>
                                 <option value="Canino">Canino</option>
                                 <option value="Felino">Felino</option>
                                 <option value="Aves">Aves</option>
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.IdResponsable, "IdResponsable", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <label class="control-label col-md-2">Responsable</label>
                         <div class="col-md-10">
                             @Html.DropDownList("IdResponsable", null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.IdResponsable, "", new { @class = "text-danger" })

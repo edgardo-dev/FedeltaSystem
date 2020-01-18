@@ -53,6 +53,7 @@ namespace FedeltaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblExpedientes.FechaCreacion = DateTime.Now;
                 db.Expedientes.Add(tblExpedientes);
                 db.SaveChanges();
                 return RedirectToAction("Index");
