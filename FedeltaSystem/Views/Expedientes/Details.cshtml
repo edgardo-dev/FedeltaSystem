@@ -1,42 +1,81 @@
 ﻿@model FedeltaSystem.Models.tblExpedientes
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Expediente N° "+@Html.DisplayFor(model => model.NumExpediente) +" Paciente: "+@Html.DisplayFor(model => model.Paciente.NombrePaciente);
 }
 
-<h2>Details</h2>
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>DATOS DEL EXPEDIENTES N° @Html.DisplayFor(model => model.NumExpediente)</h4></div>
+            <div class="panel-body bg-gray">
 
-<div>
-    <h4>tblExpedientes</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Paciente.NombrePaciente)
-        </dt>
+                <dl class="dl-horizontal col-sm-6">
+                    <dt>
+                        Nombre del Paciente:
+                    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Paciente.NombrePaciente)
-        </dd>
+                    <dd>
+                        <input type="text" name="name" class="form-control" value="@Html.DisplayFor(model => model.Paciente.NombrePaciente)" readonly/>
+                        
+                    </dd>
+                </dl>
+                <dl class="dl-horizontal col-sm-6">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaCreacion)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NumExpediente)
-        </dt>
+                    <dd>
+                        <input type="text" name="name" class="form-control" value="@Html.DisplayFor(model => model.FechaCreacion)" readonly />
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumExpediente)
-        </dd>
+                </dl>
+            </div>
+        </div>
+        <p>
+            @Html.ActionLink("MODIFICAR", "Edit", new { id = Model.IdExpediente }, new { @class = "btn btn-success" })
+            @Html.ActionLink("ATRAS", "Index", null, new { @class = "btn btn-info" })
+        </p>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaCreacion)
-        </dt>
+    <div class="row content container-fluid">
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaCreacion)
-        </dd>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONSULTAS</h4></div>
+            <div class="panel-body bg-gray">
+                <table id="Tabla" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                Fecha Consulta
+                            </th>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdExpediente }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            <th>
+                                Diagnostico
+                            </th>
+                            <th>
+                                Observaciones
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.Consultas)
+                        {
+                            <tr>
+                                <td>
+                                    @item.FechaConsulta
+                                </td>
+                                <td>
+                                    @item.Diagnostico
+                                </td>
+                                <td>
+                                    @item.Observaciones
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-----./Card dato pacientes--->
+    </div>

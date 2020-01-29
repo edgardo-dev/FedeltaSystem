@@ -1,7 +1,7 @@
 ﻿@model FedeltaSystem.Models.tblPacientes
 
 @{
-    ViewBag.Title = "Detalles";
+    ViewBag.Title = "Datos de Paciente "+@Html.DisplayFor(model => model.NombrePaciente);
 }
 <div class="row content container-fluid">
 
@@ -65,8 +65,8 @@
         </div>
 
     </div>
-    <!-----./Card dato pacientes--->
 </div>
+    <!-----./Card dato pacientes--->
 
 
 <div class="row content container-fluid">
@@ -74,35 +74,41 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONSULTAS</h4></div>
         <div class="panel-body bg-gray">
-            <table class="table table-bordered">
-                <tr>
-                    <th>
-                        Fecha Consulta
-                    </th>
-
-                    <th>
-                        Diagnostico
-                    </th>
-                    <th>
-                        Observaciones
-                    </th>
-                </tr>
-
-                @foreach (var item in ViewBag.Consultas)
-                {
+            <table id="Tabla" class="table table-bordered">
+                <thead>
                     <tr>
-                        <td>
-                            @item.FechaConsulta
-                        </td>
-                        <td>
-                            @item.Diagnostico
-                        </td>
-                        <td>
-                            @item.Observaciones
-                        </td>
+                        <th>
+                            Fecha Consulta
+                        </th>
 
+                        <th>
+                            Diagnostico
+                        </th>
+                        <th>
+                            Observaciones
+                        </th>
                     </tr>
-                }
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Consultas)
+                    {
+                        <tr>
+                            <td>
+                                @item.FechaConsulta
+                            </td>
+                            <td>
+                                @item.Diagnostico
+                            </td>
+                            <td>
+                                @item.Observaciones
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+
+                </tfoot>
 
             </table>
         </div>

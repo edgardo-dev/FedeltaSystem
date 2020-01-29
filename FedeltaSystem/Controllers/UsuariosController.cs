@@ -26,10 +26,10 @@ namespace FedeltaSystem.Controllers
         }
         public ActionResult Create()
         {
-            if (Session["IdUsuario"] == null)
-            {
-                return RedirectToAction("Login", "Login");
-            }
+            //if (Session["IdUsuario"] == null)
+            //{
+            //    return RedirectToAction("Login", "Login");
+            //}
             ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
             ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol");
             return View();

@@ -4,63 +4,66 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="row content container-fluid">
 
-<div>
-    <h4>tblConsultas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Paciente.NombrePaciente)
-        </dt>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>DATOS DEL PACIENTES</h4></div>
+        <div class="panel-body bg-gray">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Paciente.NombrePaciente)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Paciente.NombrePaciente)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Paciente.NombrePaciente)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaConsulta)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaConsulta)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaConsulta)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.FechaConsulta)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Peso)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Peso)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Peso)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Peso)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Temperatura)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Temperatura)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Temperatura)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Temperatura)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Diagnostico)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Diagnostico)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Diagnostico)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Diagnostico)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Observaciones)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Observaciones)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Observaciones)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Observaciones)
+                </dd>
 
-    </dl>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdConsulta }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+        </p>
+    </div>
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdConsulta }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

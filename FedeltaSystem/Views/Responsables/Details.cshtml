@@ -4,47 +4,48 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE CLIENTES</h4></div>
+        <div class="panel-body bg-gray">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.NombreResponsable)
+                </dt>
 
-<div>
-    <h4>tblResponsables</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NombreResponsable)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.NombreResponsable)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NombreResponsable)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApellidoResponsable)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApellidoResponsable)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ApellidoResponsable)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApellidoResponsable)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Direccion)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Telefono)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Telefono)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-
-    </dl>
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdResponsable }, new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Atras", "Index",null, new { @class = "btn btn-info" })
+        </p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdResponsable }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

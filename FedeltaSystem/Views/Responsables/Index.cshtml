@@ -3,49 +3,59 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="row content container-fluid">
+    <p>
+        @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE CLIENTES</h4></div>
+        <div class="panel-body bg-gray">
+            <table id="Tabla" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NombreResponsable)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ApellidoResponsable)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Direccion)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Telefono)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NombreResponsable)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ApellidoResponsable)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Direccion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telefono)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdResponsable }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdResponsable}, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdResponsable }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                            </td>
+                        </tr>
+                    }
 
-<h2>Index</h2>
+                </tbody>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NombreResponsable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApellidoResponsable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NombreResponsable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ApellidoResponsable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdResponsable }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdResponsable }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdResponsable })
-        </td>
-    </tr>
-}
-
-</table>
+            </table>
+        </div>
+    </div>
+</div>

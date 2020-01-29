@@ -20,6 +20,46 @@ namespace FedeltaSystem.Controllers
             var expedientes = db.Expedientes.Include(t => t.Paciente);
             return View(expedientes.ToList());
         }
+        [HttpGet]
+        public ActionResult CargarPaciente()
+        {
+            ViewBag.Responsables = db.Responsables;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CargarPaciente(int NumExpediente, int IdResponsable, string NombrePaciente,
+            int Edad, string Sexo, string Raza, string Especie)
+        {
+            try
+            {
+                var Pacientes = new tblPacientes();
+
+                Pacientes.NombrePaciente = NombrePaciente;
+                Pacientes.Edad = Edad;
+                Pacientes.Sexo = Sexo;
+                Pacientes.Raza = Raza;
+                Pacientes.Especie = Especie;
+                Pacientes.IdResponsable = IdResponsable;
+                db.Pacientes.Add(Pacientes);
+                db.SaveChanges();
+                using (var db2 = new Contexto())
+                {
+                    var Expedientes = new tblExpedientes();
+                    Expedientes.NumExpediente = NumExpediente;
+                    Expedientes.FechaCreacion = DateTime.Now;
+                    var idPaciente = (from id in db2.Pacientes select id.IdPaciente).Max();
+                    Expedientes.IdPaciente = idPaciente;
+                    db2.Expedientes.Add(Expedientes);
+                    db2.SaveChanges();
+                }
+                    
+                return RedirectToAction("Index","Pacientes");
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+        }
 
         // GET: Expedientes/Details/5
         public ActionResult Details(int? id)
@@ -33,6 +73,7 @@ namespace FedeltaSystem.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.Consultas = db.Consultas.Where(h => h.IdPaciente == id).ToList();
             return View(tblExpedientes);
         }

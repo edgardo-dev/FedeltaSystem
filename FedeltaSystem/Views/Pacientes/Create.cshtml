@@ -6,7 +6,22 @@
 
 <div class="row content container-fluid">
     <div class="panel panel-primary">
-        <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
+        <div class="panel-heading text-center"><h5>EXPEDIENTE</h5></div>
+        <div class="panel-body bg-gray">
+            <div class="form-group">
+                <label class="control-label col-md-2">Número de Expediente</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="number" name="NumExpediente" id="NumExpediente" value="" placeholder="Ingrese un Número" />
+                </div>
+                <label class="control-label col-md-2">Fecha Creación</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="date" name="Fecha" id="Fecha" value="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE PACIENTES</h4></div>
         <div class="panel-body bg-gray">
 
             @using (Html.BeginForm())
@@ -77,7 +92,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Guardar" class="btn btn-primary" />
+                            <input type="button" value="Guardar" name="btnGuardar" id="btnGuardar" class="btn btn-primary" />
                         </div>
                     </div>
                 </div>
@@ -90,3 +105,55 @@
         @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
     </div>
 </div>
+@section EnvioDatos{
+    <script>
+         $("#btnGuardar").click(function () {
+            var NombrePaciente = $("#NombrePaciente").val();
+            var Edad = $("#Edad").val();
+            var Sexo = $("#Sexo").val();
+            var Raza = $("#Raza").val();
+             var Especie = $("#Raza").val();
+             if (NombrePaciente == "" || Especie == "") {
+                 alert("Faltan Datos del Paciente")
+             }
+            else {
+                $.ajaxSetup({ async: false });
+                //cargando datos tabla primaria
+                 var urlPaciente = '@Url.Action("CrearPaciente", "Pacientes")';
+                 var dataPaciente = { NombrePaciente: NombrePaciente, Edad: Edad, Sexo: Sexo, Raza: Raza, Especie: Especie };
+                    $.post(urlPaciente, dataPaciente)
+                        .done(function (data) {
+                            // alert("Compra Creada con exito")
+                        })
+                        .fail(function (data) {
+                            console.log("Error: " + data.responseText);
+                        }).
+                        always(function () {
+                        });
+            //creando detalleCompra
+            var NumExpediente = $("#NumExpediente").val();
+            var Fecha = $("#Fecha").val();
+                 if (NumExpediente == "" || Fecha == "") {
+                     alert("Faltan Datos del Expediente")
+                 }
+                 else {
+                     $.ajaxSetup({ async: false });
+                     //cargando datos tabla primaria
+                     var urlExpe = '@Url.Action("CrearExpediente", "Pacientes")';
+                     var dataExpe = { NumExpediente: NumExpediente, Fecha: Fecha };
+                     $.post(urlExpe, dataExpe)
+                         .done(function (data) {
+                             // alert("Compra Creada con exito")
+                         })
+                         .fail(function (data) {
+                             console.log("Error: " + data.responseText);
+                         }).
+                         always(function () {
+                         });
+                 }
+                var url = '@Url.Action("Index", "Pacientes")';
+                $(location).attr('href', url);
+            }
+        });
+    </script>
+}

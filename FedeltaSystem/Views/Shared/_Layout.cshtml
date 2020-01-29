@@ -34,8 +34,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -44,9 +42,9 @@
             <!-- Logo -->
             <a href="@Url.Action("Index","Dashboard")" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">F</span>
+                <span class="logo-mini"><i class="ion ion-ios-paw"></i></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b></b>FEDELTA</span>
+                <span class="logo-lg"><i class="ion ion-ios-paw"></i> FEDELTA</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -178,34 +176,23 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Responsables")"><i class="fa fa-search"></i>Clientes</a></li>
-                            <li><a href="@Url.Action("Create","Responsables")"><i class="fa fa-edit"></i>Nuevo Cliente</a></li>s
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-heart"></i>
-                            <span>Pacientes</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Pacientes")"><i class="fa fa-search"></i>Pacientes</a></li>
-                            <li><a href="@Url.Action("Create","Pacientes")"><i class="fa fa-edit"></i>Nuevo Paciente</a></li>s
+                            <li><a href="@Url.Action("Index","Responsables")"><i class="fa fa-search"></i>Responsables</a></li>
+                            <li><a href="@Url.Action("Create","Responsables")"><i class="fa fa-edit"></i>Nuevo Responsable</a></li>s
                         </ul>
                     </li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-archive"></i>
-                            <span>Expediente</span>
+                            <span>Expedientes</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Expedientes")"><i class="fa fa-search"></i>Expediente</a></li>
-                            <li><a href="@Url.Action("Create","Expedientes")"><i class="fa fa-edit"></i>Nuevo Expediente</a></li>s
+                            <li><a href="@Url.Action("Index","Expedientes")"><i class="fa fa-search"></i>Expedientes</a></li>
+                            <li><a href="@Url.Action("CargarPaciente","Expediente")"><i class="fa fa-edit"></i>Nuevo Expediente</a></li>
+                            <li><a href="@Url.Action("Index","Pacientes")"><i class="fa fa-search"></i>Pacientes</a></li>
+
                         </ul>
                     </li>
                     <li class="treeview">
@@ -265,7 +252,7 @@
             <div class="pull-right hidden-xs">
                 <b>Versión</b> 1.0
             </div>
-            <strong>Copyright &copy; @DateTime.Now.Year - By Fidel G. and Nestor R.</strong> All rights reserved.
+            <strong>Copyright &copy; @DateTime.Now.Year - By Bessy B. Fidel G. and Nestor R. Asaf P. </strong> All rights reserved.
         </footer>
         <!-- /.content-wrapper -->
     </div>
@@ -274,7 +261,7 @@
     <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-
+    @RenderSection("EnvioDatos", required: false)
     @RenderSection("Validar", required: false)
     <script type="text/javascript">
         $.extend($.validator.messages, {

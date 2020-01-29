@@ -3437,6 +3437,7 @@
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\Login\Salir.cshtml" />
     <Content Include="Views\Expedientes\Details.cshtml" />
+    <Content Include="Views\Expedientes\CargarPaciente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
