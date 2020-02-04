@@ -1,61 +1,62 @@
-﻿@model ActividadLogin.Models.tblUsuarios
+﻿@model FedeltaSystem.Models.tblUsuarios
 
 @{
     ViewBag.Title = "Eliminar";
 }
 
-<div class="panel panel-default">
-    <div class="panel-heading"><h4 class="text-info">Registros de Usuarios</h4></div>
-    <div class="panel-body">
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE USUARIO</h4></div>
+            <div class="panel-body bg-gray">
 
-        <div>
-            <h5 class="alert alert-danger">Seguro de Eliminar el Registro?</h5>
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Empleados.Nombre)
-                </dt>
+                <div>
+                    <h5 class="alert alert-danger">Seguro de Eliminar el Registro?</h5>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Nombre de Empleado
+                        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Empleados.Nombre)
-                </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
+                        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Roles.Rol)
-                </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Roles.Rol)
+                        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Roles.Rol)
-                </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Roles.Rol)
+                        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Usuario)
-                </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Usuario)
+                        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Usuario)
-                </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Usuario)
+                        </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Clave)
-                </dt>
+                        <dt>
+                            Contraseña
+                        </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Clave)
-                </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Clave)
+                        </dd>
 
 
-            </dl>
+                    </dl>
 
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
+                <div class="col-sm-offset-9 col-sm-3" align="right">
                     <input type="submit" value="ELIMINAR" class="btn btn-danger" /> |
                     @Html.ActionLink("ATRAS", "Index", null, new { @class = "btn btn-info" })
                 </div>
-            }
+                    }
+                </div>
+            </div>
         </div>
     </div>
-</div>

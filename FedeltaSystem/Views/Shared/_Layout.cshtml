@@ -40,7 +40,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="@Url.Action("Index","Dashboard")" class="logo">
+            <a href="@Url.Action("Index", "Dashboard")" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><i class="ion ion-ios-paw"></i></span>
                 <!-- logo for regular state and mobile devices -->
@@ -115,23 +115,33 @@
                                 <!-- Menu Body -->
                                 <li class="user-body">
                                     <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="@Url.Action("Index","Roles")">Gestión Roles</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="@Url.Action("Index","Empleados")">Gestión Empleados</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="@Url.Action("Index","Usuarios")">Gestión Usuarios</a>
-                                        </div>
+                                        @{
+                                            if (Convert.ToString(Session["Rol"]) == "Administrador")
+                                            {
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="@Url.Action("Index", "Roles")">Gestión Roles</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="@Url.Action("Index", "Empleados")">Gestión Empleados</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="@Url.Action("Index", "Usuarios")">Gestión Usuarios</a>
+                                                </div>
+                                            }
+                                        }
                                     </div>
                                     <!-- /.row -->
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="@Url.Action("Edit/"+@Session["IdUsuario"],"Usuarios")" class="btn btn-default btn-flat">Modificar</a>
-                                    </div>
+                                    @{
+                                        if (Convert.ToString(Session["Rol"]) == "Administrador")
+                                        {
+                                            <div class="pull-left">
+                                                <a href="@Url.Action("Edit/" + @Session["IdUsuario"], "Usuarios")" class="btn btn-default btn-flat">Modificar</a>
+                                            </div>
+                                        }
+                                    }
                                     <div class="pull-right">
                                         <a href="@Url.Action("Salir","Login")" class="btn btn-default btn-flat">Cerrar Sesión</a>
                                     </div>
@@ -170,7 +180,7 @@
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-users"></i>
-                            <span>Clientes</span>
+                            <span>Responsables</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -231,6 +241,50 @@
                             <li><a href="#"><i class="fa fa-edit"></i>Agregar Vacuna</a></li>
                         </ul>
                     </li>
+                    @{
+                        if (Convert.ToString(Session["Rol"]) == "Administrador")
+                        {
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-vcard"></i>
+                                    <span>Empleados</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Empleados")"><i class="fa fa-search"></i>Control de Empleados</a></li>
+                                    <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-user-circle"></i>
+                                    <span>Roles</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Roles")"><i class="fa fa-search"></i>Gestión de Roles</a></li>
+                                    <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-users"></i>
+                                    <span>Usuarios</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
+                                    <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
                 </ul>
             </section>
             <!-- /.sidebar -->

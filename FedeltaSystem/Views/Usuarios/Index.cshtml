@@ -1,57 +1,61 @@
 ﻿@model IEnumerable<FedeltaSystem.Models.tblUsuarios>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Control de Usuarios";
 }
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4 class="text-info">Registros de Usuarios</h4></div>
-        <div class="panel-body">
+    <div class="row content container-fluid">
+        <div class="col-sm-offset-11 col-sm-1" align="right">
+            <a title="Agregar Usuario" href="@Url.Action("Create")" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></a>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
+            <div class="panel-body bg-gray">
+                <table id="Tabla" class="table table-bordered table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>
+                                Nombre del Empleado
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Roles.Rol)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Usuario)
+                            </th>
+                            <th>
+                                Contraseña
+                            </th>
+                            <th><i class="fa fa-gear"></i> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Roles.Rol)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Usuario)
+                                </td>
+                                <td>
+                                    ******
+                                </td>
 
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.IdUsuario }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.IdUsuario }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.IdUsuario }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                </td>
+                            </tr>
 
-            <p class="text-right">
-                <a href="@Url.Action("Create")" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i>NUEVO</a>
-            </p>
-            <table class="table table-bordered">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Roles.Rol)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Usuario)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Clave)
-                    </th>
-                    <th></th>
-                </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Roles.Rol)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Usuario)
-                        </td>
-                        <td>
-                            ******
-                        </td>
-
-                        <td>
-                            @Html.ActionLink("MODIFICAR", "Edit", new { id = item.IdUsuario }, new { @class = "btn btn-success" })
-                            @Html.ActionLink("DETALLES", "Details", new { id = item.IdUsuario }, new { @class = "btn btn-warning" })
-                            @Html.ActionLink("ELIMINAR", "Delete", new { id = item.IdUsuario }, new { @class = "btn btn-danger" })
-                        </td>
-                    </tr>
-                }
-
-            </table>
         </div>
     </div>

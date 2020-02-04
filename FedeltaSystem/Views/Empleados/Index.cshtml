@@ -1,55 +1,62 @@
 ﻿@model IEnumerable<FedeltaSystem.Models.tblEmpleados>
 
 @{
-    ViewBag.Title = "Empleado";
+    ViewBag.Title = "Empleados";
 }
 
-<div class="panel panel-default">
-    <div class="panel-heading"><h4 class="text-info">Registros de Empleados</h4></div>
-    <div class="panel-body">
-        <p class="text-right">
-            <a href="@Url.Action("Create")" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i>NUEVO</a>
-        </p>
-        <table class="table table-bordered">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.NombreEmpleado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ApellidoEmpleado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Telefono)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Direccion)
-                </th>
-                <th></th>
-            </tr>
+    <div class="row content container-fluid">
+        <div class="col-sm-offset-11 col-sm-1" align="right">
+            <a title="Agregar Empleado" href="@Url.Action("Create")" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></a>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
+            <div class="panel-body bg-gray">
+                <table id="Tabla" class="table table-bordered table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Apellido
+                            </th>
+                            <th>
+                                Teléfono
+                            </th>
+                            <th>
+                                Dirección
+                            </th>
+                            <th><i class="fa fa-gear"></i> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreEmpleado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ApellidoEmpleado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Telefono)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Direccion)
-                    </td>
-                    <td>
-                        @Html.ActionLink("MODIFICAR", "Edit", new { id = item.IdEmpleado }, new { @class = "btn btn-success" })
-                        @Html.ActionLink("DETALLES", "Details", new { id = item.IdEmpleado }, new { @class = "btn btn-warning" })
-                        @Html.ActionLink("ELIMINAR", "Delete", new { id = item.IdEmpleado }, new { @class = "btn btn-danger" })
-                    </td>
-                </tr>
-            }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreEmpleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ApellidoEmpleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Direccion)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.IdEmpleado }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.IdEmpleado }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.IdEmpleado }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                </td>
+                            </tr>
+                        }
 
-        </table>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
-</div>

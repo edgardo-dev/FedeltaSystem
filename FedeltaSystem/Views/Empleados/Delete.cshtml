@@ -5,57 +5,58 @@
     ViewBag.Title = "Eliminar";
 }
 
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4 class="text-info">Registros de Empleados</h4></div>
-        <div class="panel-body">
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE USUARIO</h4></div>
+            <div class="panel-body bg-gray">
 
-            <div>
-                <h5 class="alert alert-danger">Seguro de Eliminar el Registro?</h5>
-                <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        @Html.DisplayNameFor(model => model.NombreEmpleado)
-                    </dt>
+                <div>
+                    <h5 class="alert alert-danger">Seguro de Eliminar el Registro?</h5>
+                    <dl class="col-sm-6 dl-horizontal">
+                        <dt>
+                            Nombre del Empleado
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.NombreEmpleado)
-                    </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.NombreEmpleado)
+                        </dd>
 
-                    <dt>
-                        @Html.DisplayNameFor(model => model.ApellidoEmpleado)
-                    </dt>
+                        <dt>
+                            Apellido del Empleado
+                        </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.ApellidoEmpleado)
-                    </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.ApellidoEmpleado)
+                        </dd>
+                    </dl>
+                    <dl class="col-sm-6 dl-horizontal">
+                        <dt>
+                            Teléfono
+                        </dt>
 
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Telefono)
-                    </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Telefono)
+                        </dd>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Telefono)
-                    </dd>
+                        <dt>
+                            Dirección
+                        </dt>
 
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Direccion)
-                    </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Direccion)
+                        </dd>
+                    </dl>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Direccion)
-                    </dd>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
-                </dl>
-
-                @using (Html.BeginForm())
-                {
-                    @Html.AntiForgeryToken()
-
-                    <div class="form-actions no-color">
-                        <input type="submit" value="ELIMINAR" class="btn btn-danger" /> |
-                        @Html.ActionLink("ATRAS", "Index", null, new { @class = "btn btn-info" })
-                    </div>
-                }
+                <div class="col-sm-offset-9 col-sm-3" align="right">
+                    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                    @Html.ActionLink("ATRAS", "Index", null, new { @class = "btn btn-info" })
+                </div>
+                    }
+                </div>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FedeltaSystem.Models;
+using Rotativa;
 
 namespace FedeltaSystem.Controllers
 {
@@ -17,12 +18,20 @@ namespace FedeltaSystem.Controllers
         // GET: Expedientes
         public ActionResult Index()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             var expedientes = db.Expedientes.Include(t => t.Paciente);
             return View(expedientes.ToList());
         }
         [HttpGet]
         public ActionResult CargarPaciente()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             ViewBag.Responsables = db.Responsables;
             return View();
         }
@@ -52,8 +61,8 @@ namespace FedeltaSystem.Controllers
                     db2.Expedientes.Add(Expedientes);
                     db2.SaveChanges();
                 }
-                    
-                return RedirectToAction("Index","Pacientes");
+
+                return RedirectToAction("Index", "Pacientes");
             }
             catch (Exception)
             {
@@ -64,6 +73,10 @@ namespace FedeltaSystem.Controllers
         // GET: Expedientes/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -77,36 +90,13 @@ namespace FedeltaSystem.Controllers
             ViewBag.Consultas = db.Consultas.Where(h => h.IdPaciente == id).ToList();
             return View(tblExpedientes);
         }
-
-        // GET: Expedientes/Create
-        public ActionResult Create()
-        {
-            ViewBag.IdPaciente = new SelectList(db.Pacientes, "IdPaciente", "NombrePaciente");
-            return View();
-        }
-
-        // POST: Expedientes/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdExpediente,NumExpediente,FechaCreacion,IdPaciente")] tblExpedientes tblExpedientes)
-        {
-            if (ModelState.IsValid)
-            {
-                tblExpedientes.FechaCreacion = DateTime.Now;
-                db.Expedientes.Add(tblExpedientes);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.IdPaciente = new SelectList(db.Pacientes, "IdPaciente", "NombrePaciente", tblExpedientes.IdPaciente);
-            return View(tblExpedientes);
-        }
-
         // GET: Expedientes/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -140,6 +130,10 @@ namespace FedeltaSystem.Controllers
         // GET: Expedientes/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -171,5 +165,20 @@ namespace FedeltaSystem.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult ReporteExpediente(int? id)
+        {
+            ViewBag.Consultas = db.Consultas.Where(c => c.IdPaciente == id).ToList();
+            ViewBag.Expediente = db.Expedientes.Where(e => e.IdPaciente == id).FirstOrDefault();
+            ViewBag.Paciente = db.Pacientes.Where(p => p.IdPaciente == id).Include(r => r.Responsable).FirstOrDefault();
+           
+            return View();
+        }
+        public ActionResult Print(int id)
+        {
+            return new ActionAsPdf("ReporteExpediente", new {id = id})
+            { FileName = "Reporte_Expediente.pdf" };
+        } 
+            
+
     }
 }

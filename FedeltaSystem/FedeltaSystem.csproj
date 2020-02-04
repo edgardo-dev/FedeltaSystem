@@ -52,6 +52,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -2843,6 +2846,10 @@
     <Content Include="img\icons\favicon.ico" />
     <Content Include="img\logo.jpeg" />
     <Content Include="img\perritoLogo.png" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -3273,6 +3280,7 @@
     <Content Include="Content\bower_components\bootstrap-datepicker\yarn.lock" />
     <Content Include="Content\datatables_custom\datatables\Buttons-1.5.6\css\common.scss" />
     <Content Include="Content\datatables_custom\datatables\Buttons-1.5.6\css\mixins.scss" />
+    <Content Include="App_Browsers\qt.browser" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3382,7 +3390,6 @@
     <Content Include="Views\Pacientes\Details.cshtml" />
     <Content Include="Views\Pacientes\Edit.cshtml" />
     <Content Include="Views\Pacientes\Index.cshtml" />
-    <Content Include="Views\Expedientes\Create.cshtml" />
     <Content Include="Views\Expedientes\Delete.cshtml" />
     <Content Include="Views\Expedientes\Edit.cshtml" />
     <Content Include="Views\Expedientes\Index.cshtml" />
@@ -3438,6 +3445,7 @@
     <Content Include="Views\Login\Salir.cshtml" />
     <Content Include="Views\Expedientes\Details.cshtml" />
     <Content Include="Views\Expedientes\CargarPaciente.cshtml" />
+    <Content Include="Views\Expedientes\ReporteExpediente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -17,19 +17,19 @@ namespace FedeltaSystem.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            //if (Session["IdUsuario"] == null)
-            //{
-            //    return RedirectToAction("Login", "Login");
-            //}
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             var usuarios = db.Usuarios.Include(t => t.Empleados).Include(t => t.Roles);
             return View(usuarios.ToList());
         }
         public ActionResult Create()
         {
-            //if (Session["IdUsuario"] == null)
-            //{
-            //    return RedirectToAction("Login", "Login");
-            //}
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
             ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol");
             return View();
@@ -53,10 +53,10 @@ namespace FedeltaSystem.Controllers
         }
         public ActionResult Details(int? id)
         {
-            //if (Session["IdUsuario"] == null)
-            //{
-            //    return RedirectToAction("Login", "Login");
-            //}
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -70,10 +70,10 @@ namespace FedeltaSystem.Controllers
         }
         public ActionResult Edit(int? id)
         {
-            //if (Session["IdUsuario"] == null)
-            //{
-            //    return RedirectToAction("Login", "Login");
-            //}
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -112,7 +112,7 @@ namespace FedeltaSystem.Controllers
         {
             if (Session["IdUsuario"] == null)
             {
-                return RedirectToAction("Login", "Login");
+                return RedirectToAction("Index", "Login");
             }
             if (id == null)
             {

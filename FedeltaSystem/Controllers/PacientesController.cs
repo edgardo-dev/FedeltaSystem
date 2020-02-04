@@ -17,6 +17,10 @@ namespace FedeltaSystem.Controllers
         // GET: Pacientes
         public ActionResult Index()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             var pacientes = db.Pacientes.Include(t => t.Responsable);
             return View(pacientes.ToList());
         }
@@ -24,6 +28,10 @@ namespace FedeltaSystem.Controllers
         // GET: Pacientes/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +48,10 @@ namespace FedeltaSystem.Controllers
         // GET: Pacientes/Create
         public ActionResult Create()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             ViewBag.IdResponsable = new SelectList(db.Responsables, "IdResponsable", "NombreResponsable");
             return View();
         }
@@ -67,6 +79,10 @@ namespace FedeltaSystem.Controllers
         // GET: Pacientes/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -102,6 +118,10 @@ namespace FedeltaSystem.Controllers
         // GET: Pacientes/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

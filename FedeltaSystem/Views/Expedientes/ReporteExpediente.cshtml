@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "ReporteExpediente";
+    Layout = null;
+}
+<!-- Bootstrap 3.3.7 -->
+<link href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container-fluid">
+    <div class="row">
+        <div align="center"> <img style="height:100px; width:125px" src="~/img/logo.jpeg" /></div>
+        <div class="text-center"><h4>HOJA DE HISTORIA CLINICA</h4></div>
+    </div>
+    <div class="row">
+        <div align="right">
+            <label>N° DE EXPEDIENTE:</label> @ViewBag.Expediente.NumExpediente
+            <label>FECHA :</label> @ViewBag.Expediente.FechaCreacion
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-left"><h5>GENERALIDADES DEL PACIENTE</h5></div>
+        <div align="justify">
+            <label>Nombre del Paciente:</label> @ViewBag.Paciente.NombrePaciente
+            <br />
+            <label>Edad:</label> @ViewBag.Paciente.Edad
+            <label>Sexo:</label> @ViewBag.Paciente.Sexo
+            <label>Raza:</label> @ViewBag.Paciente.Raza
+            <label>Especie:</label> @ViewBag.Paciente.Especie
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div align="justify">
+            <label>Nombre del Responsable:</label> @ViewBag.Paciente.Responsable.NombreResponsable @ViewBag.Paciente.Responsable.ApellidoResponsable
+            <br />
+            <label>Direccion:</label> @ViewBag.Paciente.Responsable.Direccion
+            <label>Teléfono:</label> @ViewBag.Paciente.Responsable.Telefono
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center"><h5>CONSULTAS</h5></div>
+        <div align="justify">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Fecha Consulta
+                        </th>
+                        <th>
+                            Peso
+                        </th>
+                        <th>
+                            Temperatura
+                        </th>
+                        <th>
+                            Diagnostico
+                        </th>
+                        <th>
+                            Observaciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Consultas)
+                    {
+                    <tr>
+                        <td>
+                            @item.FechaConsulta
+                        </td>
+                        <td>
+                            @item.Peso Lb
+                        </td>
+                        <td>
+                            @item.Temperatura C°
+                        </td>
+                        <td>
+                            @item.Diagnostico
+                        </td>
+                        <td>
+                            @item.Observaciones
+                        </td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -17,12 +17,20 @@ namespace FedeltaSystem.Controllers
         // GET: Responsables
         public ActionResult Index()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.Responsables.ToList());
         }
 
         // GET: Responsables/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +46,10 @@ namespace FedeltaSystem.Controllers
         // GET: Responsables/Create
         public ActionResult Create()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
@@ -61,6 +73,10 @@ namespace FedeltaSystem.Controllers
         // GET: Responsables/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -92,6 +108,10 @@ namespace FedeltaSystem.Controllers
         // GET: Responsables/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

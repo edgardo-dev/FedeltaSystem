@@ -17,12 +17,20 @@ namespace FedeltaSystem.Controllers
         // GET: Roles
         public ActionResult Index()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View(db.Roles.ToList());
         }
 
         // GET: Roles/Details/5
         public ActionResult Details(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +46,10 @@ namespace FedeltaSystem.Controllers
         // GET: Roles/Create
         public ActionResult Create()
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
 
@@ -48,6 +60,7 @@ namespace FedeltaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdRol,Rol,Descripcion")] tblRoles tblRoles)
         {
+
             if (ModelState.IsValid)
             {
                 db.Roles.Add(tblRoles);
@@ -61,6 +74,10 @@ namespace FedeltaSystem.Controllers
         // GET: Roles/Edit/5
         public ActionResult Edit(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -92,6 +109,10 @@ namespace FedeltaSystem.Controllers
         // GET: Roles/Delete/5
         public ActionResult Delete(int? id)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
