@@ -24,22 +24,22 @@
             <div class="panel-body bg-gray">
                 <div class="form-horizontal col-sm-6">
                     <div class="form-group">
-                        <label class="control-label col-md-2">Nombre del Paciente</label>
-                        <div class="col-md-10">
+                        <label class="control-label col-md-3">Nombre del Paciente</label>
+                        <div class="col-md-9">
                             <input type="text" name="NombrePaciente" id="NombrePaciente" class="form-control" value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2">Edad</label>
-                        <div class="col-md-10">
+                        <label class="control-label col-md-3">Edad</label>
+                        <div class="col-md-9">
                             <input type="number" name="Edad" id="Edad" class="form-control" value="" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2">Sexo</label>
-                        <div class="col-md-10">
+                        <label class="control-label col-md-3">Sexo</label>
+                        <div class="col-md-9">
                             <select name="Sexo" id="Sexo" class="form-control">
                                 <option value="">Seleccione</option>
                                 <option value="Macho">Macho</option>
@@ -51,15 +51,15 @@
                 <div class="form-horizontal col-sm-6">
 
                     <div class="form-group">
-                        <label class="control-label col-md-2">Raza</label>
-                        <div class="col-md-10">
+                        <label class="control-label col-md-3">Raza</label>
+                        <div class="col-md-9">
                             <input type="text" name="Raza" id="Raza" value="" class="form-control" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2">Especie</label>
-                        <div class="col-md-10">
+                        <label class="control-label col-md-3">Especie</label>
+                        <div class="col-md-9">
                             <select name="Especie" id="Especie" class="form-control">
                                 <option value="">Seleccione</option>
                                 <option value="Canino">Canino</option>
@@ -73,8 +73,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-md-2">Nombre del Responsable</label>
-                        <div class="col-md-10">
+                        <label class="control-label col-md-3">Responsable</label>
+                        <div class="col-md-9">
                             <select id="IdResponsable" name="IdResponsable" class="form-control">
                                 <option value="">Seleccione</option>
                                 @foreach (var item in ViewBag.Responsables)
@@ -87,49 +87,49 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div align="right">
-                        <input type="submit" value="Guardar" name="btnGuardar" id="btnGuardar" class="btn btn-primary" />
+                    <div class="col-sm-offset-8 col-sm-4" align="right">
+                        <input type="submit" value="Guardar" class="btn btn-success" /> |
+                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                     </div>
                 </div>
             </div>
-            <div>
-                @Html.ActionLink(" Atras", "Index","Pacientes", new { @class = "fa fa-mail-reply btn btn-success" })
-            </div>
+            
         </div>
+
     </form>
-   
+
 </div>
 @*@section EnvioDatos{
-    <script>
-        $("#btnGuardar").click(function () {
-            var NombrePaciente = $("#NombrePaciente").val();
-            var Edad = $("#Edad").val();
-            var Sexo = $("#Sexo").val();
-            var Raza = $("#Raza").val();
-            var Especie = $("#Raza").val();
-            var NumExpediente = $("#NumExpediente").val();
-            var Fecha = $("#Fecha").val();
-            if (NombrePaciente == "" || Especie == "" || NumExpediente == "" || Fecha == "") {
-                alert("Faltan Datos del Paciente")
-            }
-            else {
-                $.ajaxSetup({ async: false });
-                //cargando datos tabla primaria
-                var urlPaciente = '@Url.Action("CrearExpediente", "Expedientes")';
-                var dataPaciente = { NombrePaciente: NombrePaciente, Edad: Edad, Sexo: Sexo, Raza: Raza, Especie: Especie, NumExpediente: NumExpediente };
-                $.post(urlPaciente, dataPaciente)
-                    .done(function (data) {
-                        alert(NombrePaciente, Edad, Sexo, Raza, Especie)
-                    })
-                    .fail(function (data) {
-                        console.log("Error: " + data.responseText);
-                    }).
-                    always(function () {
-                    });
-                var url = '@Url.Action("Index", "Pacientes")';
-                $(location).attr('href', url);
-            }
-        });
-    </script>
-}*@
+        <script>
+            $("#btnGuardar").click(function () {
+                var NombrePaciente = $("#NombrePaciente").val();
+                var Edad = $("#Edad").val();
+                var Sexo = $("#Sexo").val();
+                var Raza = $("#Raza").val();
+                var Especie = $("#Raza").val();
+                var NumExpediente = $("#NumExpediente").val();
+                var Fecha = $("#Fecha").val();
+                if (NombrePaciente == "" || Especie == "" || NumExpediente == "" || Fecha == "") {
+                    alert("Faltan Datos del Paciente")
+                }
+                else {
+                    $.ajaxSetup({ async: false });
+                    //cargando datos tabla primaria
+                    var urlPaciente = '@Url.Action("CrearExpediente", "Expedientes")';
+                    var dataPaciente = { NombrePaciente: NombrePaciente, Edad: Edad, Sexo: Sexo, Raza: Raza, Especie: Especie, NumExpediente: NumExpediente };
+                    $.post(urlPaciente, dataPaciente)
+                        .done(function (data) {
+                            alert(NombrePaciente, Edad, Sexo, Raza, Especie)
+                        })
+                        .fail(function (data) {
+                            console.log("Error: " + data.responseText);
+                        }).
+                        always(function () {
+                        });
+                    var url = '@Url.Action("Index", "Pacientes")';
+                    $(location).attr('href', url);
+                }
+            });
+        </script>
+    }*@
 

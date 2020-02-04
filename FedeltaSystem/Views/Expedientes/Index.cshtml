@@ -4,54 +4,54 @@
     ViewBag.Title = "Expedientes";
 }
 
-<div class="row content container-fluid">
-    <p>
-        @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
-    </p>
-    <div class="panel panel-primary">
-        <div class="panel-heading text-center"><h4>CONTROL DE EXPEDIENTES</h4></div>
-        <div class="panel-body bg-gray">
-            <table id="Tabla" class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>
-                            Nombre del Paciente
-                        </th>
-                        <th>
-                           Número de Expediente
-                        </th>
-                        <th>
-                           Fecha de Registro
-                        </th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Paciente.NombrePaciente)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NumExpediente)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FechaCreacion)
-                            </td>
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdExpediente }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
-                                @Html.ActionLink(" ", "Details", new { id = item.IdExpediente }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
-                                @Html.ActionLink(" ", "Print", new { id = item.IdExpediente }, new { @class = "fa fa-print btn btn-primary", title = "Imprimir" }) |
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdExpediente }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-
-            </table>
+    <div class="row content container-fluid">
+        <div class="col-sm-offset-11 col-sm-1" align="right">
+            <a title="Nuevo Expediente" href="@Url.Action("CargarPaciente")" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></a>
         </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE EXPEDIENTES</h4></div>
+            <div class="panel-body bg-gray">
+                <table id="Tabla" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Nombre del Paciente
+                            </th>
+                            <th>
+                                Número de Expediente
+                            </th>
+                            <th>
+                                Fecha de Registro
+                            </th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Paciente.NombrePaciente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumExpediente)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaCreacion)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.IdExpediente }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                    @Html.ActionLink(" ", "Details", new { id = item.IdExpediente }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                    @Html.ActionLink(" ", "Print", new { id = item.IdExpediente }, new { @class = "fa fa-print btn btn-primary", title = "Imprimir" }) |
+                                    @Html.ActionLink(" ", "Delete", new { id = item.IdExpediente }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <!-----./Card dato pacientes--->
     </div>
-    <!-----./Card dato pacientes--->
-</div>
