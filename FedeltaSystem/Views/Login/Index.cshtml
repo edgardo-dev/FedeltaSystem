@@ -26,11 +26,18 @@
 
         <div class="limiter">
             <div class="container-login100" style="margin-top:50px">
-
+                
                 <div style="margin-left:5px;" class="zoom wrap-login100 p-t-30 p-b-40">
 
                     <form action="@Url.Action("Index","Login")" method="post" class=" login100-form validate-form p-b-33 p-t-5">
                         <h3 class="text-center alert alert-primary">Ingresar Credenciales</h3>
+                        @{ if (ViewBag.Bandera = true)
+                            {
+                                <div class="@ViewBag.Alerta">
+                                    @ViewBag.Mensaje
+                                </div>
+                            }
+                        }
                         <div class="wrap-input100 validate-input" data-validate="Enter username">
                             <input class="input100" type="text" required name="username" placeholder="Ingrese Usuario" autocomplete="off">
                             <span class="focus-input100" data-placeholder="&#xe82a;"></span>

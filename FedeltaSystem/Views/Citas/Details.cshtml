@@ -1,0 +1,53 @@
+﻿@model FedeltaSystem.Models.tblCitas
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
+        <div class="panel-body bg-gray">
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Fecha)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Descripcion)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Estado)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Paciente)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Paciente)
+                    </dd>
+
+                </dl>
+            </div>
+            <div class="col-sm-offset-9 col-sm-3" align="right">
+                @Html.ActionLink("Modificar", "Edit", new { id = Model.IdCita }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+            </div>
+        </div>
+    </div>
+</div>

@@ -60,10 +60,10 @@
 
             </dl>
         </div>
-        <p>
-            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdConsulta }, new { @class = "btn btn-primary" })
+        <div class="col-sm-offset-9 col-sm-3" align="right">
+            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdConsulta }, new { @class = "btn btn-success" }) |
             @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
-        </p>
+        </div>
     </div>
-
 </div>
+    </div>

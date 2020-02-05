@@ -230,9 +230,12 @@ C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\bin\es\System.Web.Webpages.Dep
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\bin\es\System.Web.Helpers.resources.dll
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\bin\es\System.Web.Mvc.resources.dll
-C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.csprojAssemblyReference.cache
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.csproj.CoreCompileInputs.cache
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.csproj.CopyComplete
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.dll
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.pdb
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\bin\Rotativa.dll
+C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.Migrations.InitialCreate.resources
+C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.csproj.GenerateResource.cache
+C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.Migrations.Base1.resources
+C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.Migrations.Base2.resources

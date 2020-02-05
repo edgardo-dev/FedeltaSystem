@@ -3402,6 +3402,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CitasController.cs" />
     <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
@@ -3414,6 +3415,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912180150215_InitialCreate.cs" />
+    <Compile Include="Migrations\201912180150215_InitialCreate.Designer.cs">
+      <DependentUpon>201912180150215_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002050435342_Base1.cs" />
+    <Compile Include="Migrations\202002050435342_Base1.Designer.cs">
+      <DependentUpon>202002050435342_Base1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002050437063_Base2.cs" />
+    <Compile Include="Migrations\202002050437063_Base2.Designer.cs">
+      <DependentUpon>202002050437063_Base2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCitas.cs" />
     <Compile Include="Models\tblConsulta.cs" />
@@ -3447,6 +3461,11 @@
     <Content Include="Views\Expedientes\Details.cshtml" />
     <Content Include="Views\Expedientes\CargarPaciente.cshtml" />
     <Content Include="Views\Expedientes\ReporteExpediente.cshtml" />
+    <Content Include="Views\Citas\Create.cshtml" />
+    <Content Include="Views\Citas\Delete.cshtml" />
+    <Content Include="Views\Citas\Details.cshtml" />
+    <Content Include="Views\Citas\Edit.cshtml" />
+    <Content Include="Views\Citas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3462,6 +3481,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912180150215_InitialCreate.resx">
+      <DependentUpon>201912180150215_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002050435342_Base1.resx">
+      <DependentUpon>202002050435342_Base1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002050437063_Base2.resx">
+      <DependentUpon>202002050437063_Base2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

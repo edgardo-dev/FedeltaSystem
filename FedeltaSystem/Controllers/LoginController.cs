@@ -14,6 +14,7 @@ namespace FedeltaSystem.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            ViewBag.Bandera = false;
             return View();
         }
         [HttpPost]
@@ -28,7 +29,8 @@ namespace FedeltaSystem.Controllers
             if (Login == null)
             {
                 ViewBag.Bandera = true;
-                ViewBag.Mensaje = "Datos incorrectos.";
+                ViewBag.Mensaje = "VERIFICAR LOS DATOS";
+                ViewBag.Alerta = "text-center alert alert-danger";
                 return View();
             }
             else
@@ -36,6 +38,7 @@ namespace FedeltaSystem.Controllers
                 Session["IdUsuario"] = Login.IdUsuario;
                 Session["Nombre"] = Login.Empleados.NombreEmpleado + " " + Login.Empleados.ApellidoEmpleado;
                 Session["Rol"] = Login.Roles.Rol;
+                
                 return RedirectToAction("Index", "Dashboard");
             }
         }

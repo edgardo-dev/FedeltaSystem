@@ -9,7 +9,7 @@ namespace FedeltaSystem.Controllers
 {
     public class DashboardController : Controller
     {
-        private Contexto db = new Contexto();
+        public Contexto db = new Contexto();
         // GET: Dashboard
         public ActionResult Index()
         {
@@ -17,6 +17,7 @@ namespace FedeltaSystem.Controllers
             {
                 return RedirectToAction("Index","Login");
             }
+            
             ViewBag.CR = db.Responsables.Count();
             ViewBag.CP = db.Pacientes.Count();
             ViewBag.CU = db.Usuarios.Count();
@@ -25,6 +26,7 @@ namespace FedeltaSystem.Controllers
             ViewBag.CE = db.Empleados.Count();
             //ViewBag.CV = db.Vacunas.Count();
             ViewBag.CEE = db.Expedientes.Count();
+            ViewBag.Citas = db.Citas.Where(C => C.Estado == "Citado").Count();
 
             return View();
         }

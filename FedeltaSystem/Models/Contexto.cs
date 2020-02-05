@@ -24,6 +24,10 @@
         public DbSet<tblResponsables> Responsables { get; set; }
         public DbSet<tblExpedientes> Expedientes { get; set; }
         public DbSet<tblPacientes> Pacientes { get; set; }
+        public DbSet<tblCitas> Citas { get; set; }
+        
+
+        
     }
 
     //public class MyEntity

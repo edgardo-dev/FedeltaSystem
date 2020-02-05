@@ -4,35 +4,35 @@
     ViewBag.Title = "Detalles";
 }
 
-<div class="panel panel-default">
-    <div class="panel-heading"><h4 class="text-info">Registros de Roles</h4></div>
-    <div class="panel-body">
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
+        <div class="panel-body bg-gray">
 
-        <div>
-            <h5 class="alert alert-info">Detalles de Rol</h5>
-            <hr />
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Rol)
-                </dt>
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Rol)
+                    </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Rol)
-                </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Rol)
+                    </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Descripcion)
-                </dt>
+                    <dt>
+                        Descripción
+                    </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Descripcion)
-                </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Descripcion)
+                    </dd>
 
-            </dl>
+                </dl>
+            </div>
+            <div class="col-sm-offset-9 col-sm-3" align="right">
+                @Html.ActionLink("Modificar", "Edit", new { id = Model.IdRol }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+            </div>
         </div>
-        <p>
-            @Html.ActionLink("MODIFICAR", "Edit", new { id = Model.IdRol }, new { @class = "btn btn-success" }) |
-            @Html.ActionLink("ATRAS", "Index", null, new { @class = "btn btn-info" })
-        </p>
     </div>
 </div>
