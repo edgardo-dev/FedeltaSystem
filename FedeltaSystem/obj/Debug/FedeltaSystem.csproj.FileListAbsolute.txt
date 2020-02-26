@@ -239,3 +239,4 @@ C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.Migrat
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.csproj.GenerateResource.cache
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.Migrations.Base1.resources
 C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.Migrations.Base2.resources
+C:\Users\PC\Downloads\FedeltaSystem\FedeltaSystem\obj\Debug\FedeltaSystem.csprojAssemblyReference.cache
