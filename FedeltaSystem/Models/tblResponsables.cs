@@ -10,10 +10,27 @@ namespace FedeltaSystem.Models
     {
         [Key]
         public int IdResponsable { get; set; }
-        public string NombreResponsable { get; set; }
-        public string ApellidoResponsable { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [Required(ErrorMessage = "Este campo es obligatorio!")]
+    [Display(Name = "Nombre Responsable")]
+    public string NombreResponsable { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [Required(ErrorMessage = "Este campo es obligatorio!")]
+    [Display(Name = "Apellido Responsable")]
+    public string ApellidoResponsable { get; set; }
+
+
+    /*------------------------------------------------------------------*/
+    [DataType(DataType.MultilineText)]
+    public string Direccion { get; set; }
+
+
+    /*------------------------------------------------------------------*/
+    [DataType(DataType.PhoneNumber)]
+    [Required(ErrorMessage ="Este campo es obligatorio!")]
+    public string Telefono { get; set; }
 
     }
 }

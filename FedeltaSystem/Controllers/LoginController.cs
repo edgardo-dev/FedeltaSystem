@@ -29,7 +29,7 @@ namespace FedeltaSystem.Controllers
             if (Login == null)
             {
                 ViewBag.Bandera = true;
-                ViewBag.Mensaje = "VERIFICAR LOS DATOS";
+                ViewBag.Mensaje = "¡Usuario o contraseña no valido!";
                 ViewBag.Alerta = "text-center alert alert-danger";
                 return View();
             }

@@ -11,10 +11,18 @@ namespace FedeltaSystem.Models
         [Key]
         public int IdCita { get; set; }
         public DateTime Fecha { get; set; }
-        public string Descripcion { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [DataType(DataType.MultilineText)]
+    public string Descripcion { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [Required(ErrorMessage ="Este campo es obligatorio!")]
         public string Estado { get; set; }
 
-        public string Paciente { get; set; }
+    /*------------------------------------------------------------------*/
+    [Required(ErrorMessage ="Este campo es obligatorio!")]
+    public string Paciente { get; set; }
 
     }
 }

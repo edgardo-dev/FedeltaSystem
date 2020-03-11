@@ -3427,6 +3427,18 @@
     <Compile Include="Migrations\202002050437063_Base2.Designer.cs">
       <DependentUpon>202002050437063_Base2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003101459370_MigracionParaValidacionesTRTUTE.cs" />
+    <Compile Include="Migrations\202003101459370_MigracionParaValidacionesTRTUTE.Designer.cs">
+      <DependentUpon>202003101459370_MigracionParaValidacionesTRTUTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101554414_MigracionParaValidacionesTPTETCTRes.cs" />
+    <Compile Include="Migrations\202003101554414_MigracionParaValidacionesTPTETCTRes.Designer.cs">
+      <DependentUpon>202003101554414_MigracionParaValidacionesTPTETCTRes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003101614032_MigracionParaValidacionesTCTExTCit.cs" />
+    <Compile Include="Migrations\202003101614032_MigracionParaValidacionesTCTExTCit.Designer.cs">
+      <DependentUpon>202003101614032_MigracionParaValidacionesTCTExTCit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCitas.cs" />
@@ -3491,6 +3503,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002050437063_Base2.resx">
       <DependentUpon>202002050437063_Base2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101459370_MigracionParaValidacionesTRTUTE.resx">
+      <DependentUpon>202003101459370_MigracionParaValidacionesTRTUTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101554414_MigracionParaValidacionesTPTETCTRes.resx">
+      <DependentUpon>202003101554414_MigracionParaValidacionesTPTETCTRes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003101614032_MigracionParaValidacionesTCTExTCit.resx">
+      <DependentUpon>202003101614032_MigracionParaValidacionesTCTExTCit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

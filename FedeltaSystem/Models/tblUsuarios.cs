@@ -11,17 +11,20 @@ namespace FedeltaSystem.Models
         [Key]
         public int IdUsuario { get; set; }
 
-        public string Usuario { get; set; }
+       [Required(ErrorMessage ="Este campo es obligatorio!")]
+       public string Usuario { get; set; }
 
-
+        [Required(ErrorMessage ="Este campo esobligatorio!")]
         public string Clave { get; set; }
 
 
         //Relaciones Empleados
+        [Display(Name ="Empleado")]
         public int IdEmpleado { get; set; }
         public virtual tblEmpleados Empleados { get; set; }
 
         //Relaciones Roles
+        [Display(Name ="Rol")]
         public int IdRol { get; set; }
         public virtual tblRoles Roles { get; set; }
     }

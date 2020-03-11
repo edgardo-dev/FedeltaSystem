@@ -11,8 +11,11 @@ namespace FedeltaSystem.Models
         [Key]
         public int IdRol { get; set; }
 
-        public string Rol { get; set; }
+        [Required(ErrorMessage ="Este campo esobligatorio!")]
+    [RegularExpression("^[a-zA-Z]*$", ErrorMessage ="Solo se permite ingresar letras")]
+    public string Rol { get; set; }
 
+      [DataType(DataType.MultilineText)]
         public string Descripcion { get; set; }
 
 
