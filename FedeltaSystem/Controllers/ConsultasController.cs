@@ -47,10 +47,10 @@ namespace FedeltaSystem.Controllers
         // GET: Consultas/Create
         public ActionResult Create()
         {
-            if (Session["IdUsuario"] == null)
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            //if (Session["IdUsuario"] == null)
+            //{
+            //    return RedirectToAction("Index", "Login");
+            //}
             ViewBag.IdPaciente = new SelectList(db.Pacientes, "IdPaciente", "NombrePaciente");
             return View();
         }

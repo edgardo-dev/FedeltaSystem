@@ -10,14 +10,34 @@ namespace FedeltaSystem.Models
     {
         [Key]
         public int IdConsulta { get; set; }
-        //Relaciones
-        public int IdPaciente { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [Required(ErrorMessage = "Este campo es obligatorio!")]
+    [Display(Name = "Fecha de Consulta")]
+    public DateTime FechaConsulta { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [Required(ErrorMessage = "Este campo es obligatorio!")]
+    public double Peso { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [Required(ErrorMessage = "Este campo es obligatorio!")]
+    public double Temperatura { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [DataType(DataType.MultilineText)]
+    public string Diagnostico { get; set; }
+
+    /*------------------------------------------------------------------*/
+    [DataType(DataType.MultilineText)]
+    public string Observaciones { get; set; }
+
+
+    //Relaciones
+    /*------------------------------------------------------------------*/
+    [Display(Name = "Paciente")]
+    public int IdPaciente { get; set; }
         public virtual tblPacientes Paciente { get; set; }
-        public DateTime FechaConsulta { get; set; }
-        public double Peso { get; set; }
-        public double Temperatura { get; set; }
-        public string Diagnostico { get; set; }
-        public string Observaciones { get; set; }
 
 
     }
